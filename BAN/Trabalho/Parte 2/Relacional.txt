@@ -1,0 +1,44 @@
+Admin(#id_admin, nome)
+
+Recepcionista(#Código_f, nome, turno)
+
+Hospede(#CPF, nome, idade, endereço, e-mail, telefone)
+
+Acompanhantes(#HAcompanhantes, nome, #CPF)
+CPF referencia Hospede
+
+Reserva(#Código_r, #Código_f, #id_checko, #CPF, status, desconto, nr de quartos)
+Código_f referencia Recepcionista
+id_checko referencia Check_out
+CPF referencia Hospede
+
+Pagamento_dia(#id_pagamento_dia, #Código_r, #CPF)//inverter cardinalidade//
+Códigor referencia Reserva
+CPF referencia Hospede
+
+Check_out(#id_checko, valor_total, valor_diárias)
+
+Reserva_dia(#Código_r,#Id_Hospedagem, Valor, Dt_ini, Dt_fim)
+Código_r referencia Reserva
+Id_Hospedagem referencia Hospedagem
+
+Consumo(#Código_r, #Id_item, Quantidade)
+Codigo_r referencia Reserva
+Id_item referencia Item_frigobar
+
+Item_frigobar(#Id_item, Nome, Quantidade)
+
+Armazenamento(#Id_frigobar, #Id_item)
+Id_frigobar referencia Frigobar
+Id_item referencia Item
+
+Frigobar(#Id_frigobar, #Id_Hospedagem)
+Id_Hospedagem referencia Dormitório
+
+Dormitório(#Id_Hospedagem, Situação, preço, Número_de_camas)
+
+Quarto_Casal(#Id_Hospedagem, nr_banheiros, Descrição)
+Id_Hospedagem referencia Dormitório
+
+Quarto_Compartilhado(#Id_Hospedagem, Tipo_de_cama, tipo_de_acomodação, Descrição)
+Id_Hospedagem referencia Dormitório

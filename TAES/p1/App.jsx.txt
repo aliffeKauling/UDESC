@@ -1,0 +1,43 @@
+import "./App.css";
+import React from "react";
+import Primeiro from "./components/Primeiro";
+import ComParametro from "./components/ComParametro";
+import Card from "./components/layout/card.jsx";
+import Repeticao from "./components/Repeticao.jsx";
+import Condicional from "./components/Condicional";
+import CondicionalcomIf from "./components/CondicionalcomIf";
+import Calcula from "./components/Calcula.jsx";
+
+export default (props) => (
+  <div className="App">
+    <Card titulo="Exercicio X">
+      <Primeiro />
+    </Card>
+    <Card titulo="Soma">
+      <Calcula />
+    </Card>
+    <Card titulo="Repeticao">
+      <Repeticao></Repeticao>
+    </Card>
+    <Card titulo="Condicional">
+      <Condicional numero={10}></Condicional>
+    </Card>
+    <Card titulo="CondicionalcomIf">
+      <CondicionalcomIf numero={11}></CondicionalcomIf>
+    </Card>
+    <Card titulo="Exercicio XX">Conteudo</Card>
+    <Card titulo="ComParametro">
+      <ComParametro título="É esse" subtítulo="Esse outro"></ComParametro>
+    </Card>
+    {/*   <Card titulo="ComFilhos">
+      <ComFilhos>
+        <ul>
+          <li>Ana</li>
+          <li>Bea</li>
+          <li>Carlos</li>
+          <li>João</li>
+        </ul>
+      </ComFilhos>
+</Card>*/}
+  </div>
+);

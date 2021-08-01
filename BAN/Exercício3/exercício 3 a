@@ -1,0 +1,47 @@
+CREATE TABLE Setor(
+
+	cods int primary key,
+	nome varchar(40) not null, 
+)
+
+CREATE TABLE mecanico{
+
+	codm int primary key,
+	nome varchar(20) not null, 
+	idade smallint not null,
+	funcao char(20),
+	endereco char(20),
+	cpf numeric(11) primary key,
+	cidade varchar(30),
+	foreign key (cods) references Setor (cods)
+}
+
+CREATE TABLE veiculo{
+
+	codv int primary key not null,
+	modelo varchar(20) not null,
+	marca varchar(15) not null,
+	renavan smallint not null,
+	ano int not null,
+	kilometragem int,
+	foreign key (codc) references cliente (codc)
+}
+
+CREATE TABLE cliente{
+
+	codc int primary key,
+	nome varchar(20) not null, 
+	idade smallint not null,
+	endereco char(20),
+	cpf numeric(11) primary key,
+	cidade varchar(30),
+}
+
+CREATE TABLE mecanico{
+
+	data date not null,
+	hora time without time zone,
+	codm int primary key,
+	foreign key (codm) references mecanico (codm)
+	foreign key (codv) references veiculo (codv)
+}

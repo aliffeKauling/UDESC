@@ -1,0 +1,55 @@
+//import React from 'react';
+import React, { useState } from "react";
+
+export default (props) => {
+  const [Numero1, setNumero1] = useState("");
+  const [Numero2, setNumero2] = useState("");
+  const [Numero3, setNumero3] = useState("");
+  const [Resultado, setResultado] = useState("");
+  const [Resultadot, setResultadot] = useState("");
+
+function calculando(){
+  setResultadot(((Number(Numero1) * 125) + (Number(Numero2) * 4.50) + (Number(Numero3) * 66))),
+  setResultado(Number(Resultadot) + (Number(Resultadot) * 0.05));
+};
+
+  return (
+    <form>
+      <label>
+        Noites de hospedagem:
+        <p></p>
+        <input
+          type="number"
+          value={Numero1}
+          onChange={(e) => setNumero1(e.target.value)}
+        />
+      </label>
+      <p></p>
+      <label>
+        Ligações realizadas:
+        <p></p>
+        <input
+          type="Number"
+          value={Numero2}
+          onChange={(e) => setNumero2(e.target.value)}
+        />
+      </label>
+      <p></p>
+      <label>
+        Refeições:
+        <p></p>
+        <input
+          type="Number"
+          value={Numero3}
+          onChange={(e) => setNumero3(e.target.value)}
+        />
+      </label>
+      <p></p>
+      <button onClick={calculando}>Calcular</button>
+      <label>
+      <h1>{Resultadot}</h1>
+      <h1>{Resultado}</h1>
+      </label>
+    </form>
+  );
+};

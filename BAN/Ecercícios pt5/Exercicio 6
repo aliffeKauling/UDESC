@@ -1,0 +1,46 @@
+1  Mostre o nome e a função dos mecânicos.
+create view mecanico_nf AS
+select m.nome, m.funcao 
+from mecanico m
+
+2  Mostre o modelo e a marca dos veículos dos clientes.
+create or replace view cliente_modelo_marca (nome_cliente, veiculo_modelo, veiculo_marca) AS
+select c.nome, v.marca, v.modelo
+From cliente c join veiculo v using (codc)
+
+3 Mostre o nome dos mecânicos, o nome dos clientes,
+o modelo dos veículos e a data e hora dos consertos realizados.
+
+create or replace view mecanico_nome_modelo_data AS
+select distinct m.nome, cc.nome, v.modelo, c.data from mecanico m
+inner join conserto c on m.codm = c.codm 
+inner join veiculo v on v.codv = c.codv 
+inner join cliente cc on v.codc = cc.codc 
+
+4) Mostre o ano dos veículos e a média de quilometragem para cada ano.
+
+create or replace view quilometragem_ano AS
+SELECT SUM (v.quilometragem) AS total, v.ano 
+FROM veiculo v
+GROUP BY v.ano
+
+
+5-
+Mostre o nome dos mecânicos e o total de consertos feitos por um mecânico em cada dia.
+
+create or replace view conserto_mecanico AS
+select Sum(c.codm), m.nome
+From conserto c
+inner join mecanico m
+on m.codm = c.codm
+group by m.nome
+
+
+6)  Mostre o nome dos setores e o total de consertos feitos em um setor em cada dia.
+
+create or replace view soma_consertos AS
+select Sum(c.codm), s.nome
+from conserto c
+inner join mecanico m on m.codm = c.codm 
+inner join setor s on m.cods = s.cods 
+group by s.nome

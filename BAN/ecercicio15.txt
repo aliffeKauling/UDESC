@@ -1,0 +1,117 @@
+create type t_tratamento as (
+data date,
+
+descricao varchar(100)
+
+)
+
+
+create type t_veterinario as( 
+crm int,
+
+
+nome varchar(50),
+
+
+convenio varchar(50)
+)
+
+
+
+create table veterinario of t_veterinario (
+
+
+primary key (crm)
+
+
+)
+
+create type t_animal as (
+
+
+identificacao int, 
+nome varchar(50),
+
+
+raca varchar(50),
+
+
+sexo char(1)
+)
+
+
+
+create table animal of t_anital ( 
+primary key (identificacao)
+)
+
+create table consulta(
+cmr int,
+identificador int,
+data date,
+resultado varchar(100),
+consequencia t_tratamento[],
+primary key (crm, identificacao, data),
+foreing key (crm) references veterinario (crm),
+foreing key (identificacao) references animal (identificacao)
+)
+
+
+create table sequencia(
+crm_ant int,
+identificacao_ant int,
+data_ant date,
+crm_dep int,
+identificacao_dep int,
+data_dep date,
+primary key (crm_ant, identificacao_ant,data_ant,crm_dep,identificacao_dep,data_dep),
+foreing key (crm_ant, identificacao_ant, data_ant) references consulta (crm, identificacao, data),
+foreing key (crm_ant, identificacao_dep, data_dep) references consulta (crm, identificacao, data)
+)
+
+
+drop table matriz
+
+
+
+create table matriz (
+
+
+primary key (identificacao)  
+inherits (animal)
+
+
+)
+
+create table reprodutor ( 
+primary key (identificacao)
+
+ 
+inherits (animal)
+)
+
+
+
+create table cobertura ( 
+id matriz int,
+
+
+id reprodutor int,
+
+
+primary key (id_matriz, id_reprodutor), 
+foreign key (id_matriz) references matriz (identificacao),
+
+
+foreign key (id_reprodutor) references reprodutor (identificacao)
+
+
+)
+
+create table adquirido
+
+nome_pai varchar(50), 
+nome_mae varchar(5e),
+
+
+valor float

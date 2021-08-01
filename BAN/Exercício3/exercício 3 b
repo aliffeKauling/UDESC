@@ -1,0 +1,99 @@
+CREATE TABLE curso{
+
+	sigla_curso char(10) primary key,
+	nome varchar(100) not null, 
+	titulacao varchar(100)
+}	
+
+CREATE TABLE grade{
+	foreign key (sigla_curso) references curso (sigla_curso),
+	foreign key (sigla_disciplina) references disciplina (sigla_disciplina)
+}	
+
+CREATE TABLE disciplina{
+	sigla_disciplina char(10) primary key,
+	nome varchar(100),
+	carga_horaria integer
+}	
+
+CREATE TABLE requisito{
+	
+	foreign key (sigla_curso_req) references curso (sigla_curso_req),
+	foreign key (sigla_disciplina_req) references disciplina (sigla_disciplina_req)
+	foreign key (sigla_curso) references curso (sigla_curso),
+	foreign key (sigla_disciplina) references disciplina (sigla_disciplina)
+}	
+
+CREATE TABLE inscricao{
+
+	matricula integer primary key,
+	foreign key (sigla_curso) references curso (sigla_curso), 
+	foreign key (cpf) references aluno (CPF)
+}	
+
+
+CREATE TABLE aluno{
+
+	cpf char(11) primary key,
+	nome varchar(100),
+	rua varchar(100),
+	numero integer,
+	estado char(2),
+	cidade varchar(100),
+	cep integer 
+}
+
+CREATE TABLE matricula{
+
+	ano date primary key,
+	semestre integer primary key,
+	foreign key (matricula) references inscricao (matricula),
+	foreign key (sigla_disciplina) references disciplina (sigla_disciplina)
+}
+
+CREATE TABLE titulo{
+
+	foreign key (reg_mec) references professor (reg_mec),
+	foreign key (cod_area) references area (cod_area),
+	data_da_titulacao date
+}
+
+CREATE TABLE area{
+
+	cod_area integer primary key,
+	descricao varchar(100)
+}
+
+CREATE TABLE responsavel{
+
+	foreign key (reg_mec) references professor (reg_mec),
+	foreign key (cod_area) references area (cod_area),
+	ate date
+}
+
+
+CREATE TABLE professor{
+
+	reg_mec integer primary key,
+	nome varchar(100), 
+	rua varchar(100),
+	numero integer,
+	estado char(2),
+	cidade varchar(100),
+	cep integer
+}
+
+CREATE TABLE leciona{
+
+	foreign key (reg_mec) references professor (reg_mec),
+	foreign key (sigla_disciplina) references disciplina (sigla_disciplina),
+	ano date, 
+	semestre integer
+}
+
+
+CREATE TABLE habilitacao{
+
+	foreign key (reg_mec) references professor (reg_mec),
+	foreign key (sigla_disciplina) references disciplina (sigla_disciplina),
+}

@@ -1,0 +1,38 @@
+1) Crie um indice para cada uma das chaves estrangeiras presentes
+
+ no esquema de dados.
+
+
+
+create index idx_conserto_codm on conserto using hash(codm);
+
+
+create index idx_conserto_cody on conserto using hash(codv);
+
+
+create index idx_mecanico_cods on mecanico using hash (cods);
+
+6
+create index idx_veiculo_codc on veiculo using hash(code);
+
+
+
+2)
+
+
+Crie um indice para acelerar a busca dos mecânicos pela função.
+
+create index idx_mecanico_funcao on mecanico using btree (substr(funcao,1,5)) 
+
+3) Crie um indice para acelerar a ordenação dos consertos pela data e hora 
+
+create index idx_conserto_data_hora on conserto using btree (data, hora); 
+
+4) Crie um indice para acelerar a busca de clientes pelo cpf. 
+create index idx_cliente_cpf on cliente using btree(cpf);
+
+5) 
+create index idx_cliente_nome on cliente using btree(substr(nome,1,5));
+
+6)
+create index idx_cliente_cpf_final on cliente using btree(cpf) wherecpf ilike XXX.XXX.XXX-55

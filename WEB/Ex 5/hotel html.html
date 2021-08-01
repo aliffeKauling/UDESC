@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8" />
+        <title>Holiday Booking System</title>
+        <link rel="stylesheet" type="/hotel css" href="styles/master.css" />
+        <link rel="shortcut icon" href="url('../images/medsunLogo2.jpeg')" />
+       
+
+        <style type="/hotel css">
+            #Adult {
+                width: 83px;
+            }
+            #Children {
+                width: 81px;
+            }
+            #Duration {
+                width: 78px;
+            }
+            .auto-style1 {
+                font-size: 11px;
+                font-style: italic;
+                color: black;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="header">
+            <div id="topNav"> <a href="PrivacyAndCookies.html">| Privacy Policy and Cookies  |</a>
+ <a href="Support.html">| Support  |</a>
+ <a href="AboutUs.html">| About Us  |</a>
+
+            </div>
+             <h1>&nbsp;&nbsp; Medsun Holidays<img src ="images/medsunLogo.png" id="logo" width="80"/></h1>
+
+            <div id="nav"> <a href="HolidayIndex.html">Home</a>
+ <a href="Holidays.html">Holidays</a>
+ <a href="Hotels.html">Hotels</a>
+ <a href="Flights.html">Flights</a>
+
+            </div>
+        </div>
+        <div id="column1">
+            <div id="personalHotel">
+                 <h2>Find My Perfect Holiday</h2>
+
+                <p>Please select the options provided by our Online Booking System:</p>
+                 <h3>Hotels</h3>
+
+                <div class="HotelBooking">
+                    <form id="getHotelBooking" onsubmit="return false;">
+                        <ul>
+                            <li>
+                                <input type="radio" id="Miramar" name="selectedhotel" value="Hotel Miramar" />Hotel Miramar</li>
+                            <li>
+                                <input type="radio" id="Jazminas" name="selectedhotel" value="Las Jazminas" />Las Jazminas</li>
+                            <li>
+                                <input type="radio" id="Tropicana" name="selectedhotel" value="Tropicana Gardens" />Tropicana Gardens</li>
+                        </ul>
+                        <input type="button" value="OK" class="buttonstyle" onclick="testHotelImages()" />
+                        <!--INFORMATION ICONS -->
+                        <div class="informationWrap">
+                            <img src="images/information_italic.png" alt="info" class="infoIcon" />
+                            <p class="imgDescription">Please choose from the selection of Hotels provided. Only 1 hotel can be purchased per hotel booking. To the left hand-side, a hotel description will appear. Only press the OK command once you have confirmed your hotel stay.</p>
+                        </div>
+                        <img id="PricePlaceHolder" src="images/PricePlaceHolder.jpg" alt="Image gallery" height="150" width="150" />
+                        <div class="Images">
+                            <img id="Hotelplaceholder" src="images/Hotelplaceholder.jpg" alt="Image gallery" height="300" width="615" />
+                        </div>
+                    </form>
+                </div>
+                
+<h3>Options</h3>
+
+                <div class="HotelBooking">
+                    <form id="getOptionsBooking" onsubmit="return false;">
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="local" name="check" value="LocalTourOption" />Tours to Local Interests</li>
+                            <li>
+                                <input type="checkbox" id="flyDrive" name="check" value="FlyDriveOption" />Fly-Drive (have a rental car waiting at the airport)</li>
+                            <li>
+                                <input type="checkbox" id="balcony" name="check" value="BalconyOption" />Balcony</li>
+                        </ul>
+                        <p>
+                            <input type="button" class="buttonstyle" value="OK" onclick="ExtraInterest()" />
+                        </p>
+                        <!--INFORMATION ICONS -->
+                        <div class="informationWrap">
+                            <img src="images/information_italic2.png" alt="info" class="infoIcon" />
+                            <p class="imgDescription">Here are the extras you can get with each hotel. Choose upto 3 options and the picture and price tag will appear on the right-hand side.</p>
+                        </div>
+                        <img src="images/bestPriceGuaranteed.jpg" id="bestPriceTag" />
+                    </form>
+                </div>
+                
+<h3>Duration</h3>
+
+                <form id="FormNights" action="#">
+                    <p>
+                        <label for="Nights">Nights:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" size="10" id="Nights" />
+                    </p>
+                    <p>
+                        <input type="button" class="buttonstyle" value="OK" onclick="DurationNights()" />
+                    </p>
+                    <!--INFORMATION ICONS -->
+                    <div class="informationWrap">
+                        <img src="images/information_italic3.png" alt="info" class="infoIcon" />
+                        <p class="imgDescription">Input the number of nights you wish to stay at the hotel. ONLY UPTO 28 DAYS CAN BE INPUTTED PER ORDER.</p>
+                    </div>
+                    <img src="images/lady.jpg" id="SpanishLady" />
+                </form>
+                <div id="YourParty">
+                     <h3>Your Party</h3>
+
+                </div>
+                <form id="Party" action="#">
+                    <p>
+                        <label for="Adults">Adults:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" size="2" id="AdultsParty" />
+                    </p>
+                    <p>
+                        <label for="Children">Children (2 - 11 yrs):&nbsp;&nbsp;&nbsp;</label>&nbsp;
+                        <input type="text" size="2" id="ChildParty" />
+                    </p>
+                    <p>
+                        <input type="button" class="buttonstyle" value="OK" onclick="PartyDetails()" />
+                    </p>
+                    <!--INFORMATION ICONS -->
+                    <div class="informationWrap">
+                        <img src="images/information_italic2.png" alt="info" class="infoIcon" />
+                        <p class="imgDescription">Input the number of adults and children in the text box. THE MAXIMUM NUMBER OF ADULTS AND CHILDREN PER ORDER IS 10</p>
+                    </div>
+                </form>
+            </div>
+            <div id="OrderConfirmation">
+                 <h4>Order Confirmation</h4>
+
+                <p>Your Place of Destination:</p><span id="HotelName"></span> 
+                <!-- <div id="TheMiramarHotel" style="visibility:hidden"> The Miramar Hotel </div> -->
+                <p>The Options added are shown here: <span id="ExtraAttractionsOutput"></span> 
+                </p>
+                <p>Your Duration for the Holiday is confirmed as: <span id="NightsOutput"></span>  <span class="auto-style1">NIGHT(S)</span> 
+                </p>
+                <p>Number of Adults: <span id="AdultPartyOutput"></span> 
+                </p>
+                <div id="NumberofChildren">
+                    <p>Number of Children: <span id="ChildPartyOutput"></span> 
+                    </p>
+                </div>
+                <input type="button" class="buttonClear" value="Clear Hotel" onclick="ClearHotel()" id="ClearHotel" />
+                <input type="button" class="buttonClear" value="Clear Options" onclick="ClearOptions()" id="ClearOptions" />
+                <input type="button" class="buttonClear" value="Clear Others" onclick="Clear()" />
+            </div>
+            <input type="button" class="buttonstyle" value="Holiday Confirmation" onclick="getHotelPrice()" id="FinalConfirmation" />
+            <!--INFORMATION ICONS -->
+            <div id="informationWrapConfirmation">
+                <img src="images/information_italic.png" alt="info" class="infoIconConfirmation" />
+                <p id="imgDescriptionConfirmation">Once you have inputted all the required information, press the 'Holiday Confirmation' button to reveal the total price of the holiday, shown in the left hand side. If there are any errors, then use the clear buttons as provided.</p>
+            </div>
+        </div>
+        <div id="column2">
+             <h4>Hotel Description</h4>
+
+            <img id="InsideHotelplaceholder" src="images/MysteryHotel.jpg" alt="Image gallery" />
+            <div id="HotelDetails">
+                 <h6>Finding the Paradise Suited By You</h6>
+
+                <p>With hotels available to suit every person and every budget look no further than Medsun Holidays for your getaway this year!</p>
+                <p>&nbsp</p>
+                <p>From high-end luxury to cheap hotels, if you're young, young at heart, a family, going solo or as a couple you can take your pick from a huge range of destinations and accommodation levels to suit your unique holiday needs.</p>
+            </div>
+            <div id="MiramarDetails" style="visibility:hidden">
+                 <h6>Miramar Hotel, Benidorm </h6>
+
+                <p>The Miramar Hotel is an ideal spot for families or groups who are looking for a relaxing base with easy access to the main centre of town.</p>
+                <p>&nbsp</p>
+                <p>Similiarly, the HTOP Royal Beach Hotel and Blue Sea Gran Hotel Cervantes are modern hotels with everything you need for a relaxing summer break.</p>
+                <p>&nbsp</p>
+                <img src="images/4outof5Stars.jpg" class="4outof5Stars" alt="Image gallery" height="33" width="134" />
+                <p>Customer Review</p><span class="BasedOnReviews">(Based on 119 reviews)</span> 
+                <div class="WhatisIncluded"><em>What is Included?</em>
+
+                    <ul>
+                        <li>25m from the resort centre</li>
+                        <li>Relaxing atmosphere</li>
+                        <li>Hotel-run kids' club</li>
+                        <li>Sun terrace with loungers</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="JazminasDetails" style="visibility:hidden">
+                 <h6>Jazminas Islands, Mediterranean </h6>
+
+                <p>The Jazminas Isands are a popular choice for summer holidays, and with so much to offer it's easy to see why!</p>
+                <p>&nbsp</p>
+                <p>An enviable Mediterranean climate and five kilometres of Blue Flag beaches, these islands are a fun-filled destination with something for everyone.</p>
+                <p>&nbsp</p>
+                <img src="images/4andaHalfOutof5.jpg" class="4outof5Stars" alt="Image gallery" height="33" width="134" />
+                <p>Customer Review</p><span class="BasedOnReviews2">(Based on 134 reviews)</span> 
+                <div class="WhatisIncluded"><em>What is Included?</em>
+
+                    <ul>
+                        <li>UK Bar Comedy Club</li>
+                        <li>Close to Levante beach</li>
+                        <li>Lively atmosphere</li>
+                        <li>Guests return year after year</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="TropicanaDetails" style="visibility:hidden">
+                 <h6>Tropicana Resort, Costa Brava</h6>
+
+                <p>Found on the North-Eastern coast of mainland Spain, Costa Brava boasts a selection of attractions that keep visitors heading back year after year.</p>
+                <p>&nbsp</p>
+                <p>From sublime, Blue Flag beaches to eclectic and vibrant towns, Costa Brava is the ideal getaway location for groups, couples and families</p>
+                <p>&nbsp</p>
+                <img src="images/3outof5Stars.jpg" class="4outof5Stars" alt="Image gallery" height="33" width="134" />
+                <p>Customer Review</p><span class="BasedOnReviews3">(Based on 84 reviews)</span> 
+                <div class="WhatisIncluded"><em>What is Included?</em>
+
+                    <ul>
+                        <li>Central location</li>
+                        <li>Close to the beach</li>
+                        <li>Great for couples</li>
+                        <li>Friendly, relaxing atmosphere</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="column3">
+            <div class="ExtraAttractions">
+                <img id="AttractionsPlaceHolder" src="images/MysteryBoxRed2.jpg" alt="Image gallery" height="200" width="320" />
+                <img id="AttractionsPlaceHolder2" src="images/MysteryBoxWithoutBackground.jpg" alt="Image gallery" height="200" width="320" />
+                <img id="AttractionsPlaceHolder3" src="images/MysteryBoxRed.jpg" alt="Image gallery" height="200" width="320" />
+            </div>
+        </div>
+        <div id="columnVertcialAdvertBanner">
+            <img src="images/advertHolidays.jpg" height="550" width="220" id="VerticalAdvertBanner" />
+        </div>
+        <div id="column4">
+             <h4>Your Holiday Summary</h4>
+
+            <div id="TotalCost"></div>
+        </div>
+        <!--<p>Here is your Total Cost for the Holiday...</p>
+             <span id="totalPrice"></span>
+             <p>Your total so far is £ <span id="TotalPrice"></span></p> -->
+        <!--********************** Start of Scripts ************************* -->
+        <script type="text/javascript" src="scripts/hotelBooking.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,35 @@
+create database exercicio9;
+use exercicio9;
+CREATE TABLE tabela1(coluna1 character varying(50), coluna2 character varying(10), coluna3 int);
+insert into tabela1 values ('OTES', 'dois', 2);insert into tabela1 values ('OTESS', 'cinco', 5);
+UPDATE tabela1 SET coluna3 = 3 WHERE coluna3 = 2;select * from tabela1;
+DELETE FROM tabela1 WHERE (coluna3=3);
+DROP TABLE tabela1;
+
+
+c:\>cd \xampp\mysql\bin
+mysql -h localhost -u root password: ******
+mysql>create database bdteste;
+mysql>use bdteste;
+mysql>create table contatos (id integer not null primary key auto_increment, 
+nome varchar(50) not null unique, data_nasc date, num_filhos integer, 
+salario numeric default 0.0);
+
+Alterar porta
+
+"mysql.default_socket =" no php.ini
+
+
+
+
+Pegar o exercício anterior, alterar pra ficar inseguro- mostrar e em seguida - mostrar como ficar seguro
+Replicar passo a passo do link de acordo com o contexto do nosso código
+
+
+Se n for WEB, dar um jeito de por uma requisição para por uma comunicação http, para fazer o cenário de testes.
+
+
+
+
+
+

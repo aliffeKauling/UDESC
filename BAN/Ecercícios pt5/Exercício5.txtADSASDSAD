@@ -1,0 +1,44 @@
+ Recupere o nome e a função de todos os mecânicos, e o número e o nome dos setores 
+ para os mecânicos que tenham essa informação.
+
+Select * from mecanico
+Select * from setor
+1-
+SELECT cpf, nome FROM mecanico WHERE cods IN (2,1);
+2-
+SELECT cpf, nome FROM mecanico WHERE cods IN (SELECT cods FROM setor WHERE nome IN ('Funilaria', 'Pintura') GROUP BY cods);
+3-
+select distinct m.cpf, m.nome from mecanico m 
+	INNER JOIN conserto c on c.codm = m.codm
+	where c.data = '13/06/2014';
+4-
+select distinct m.nome, cc.nome, c.hora from mecanico m
+inner join conserto c on m.codm = c.codm 
+inner join veiculo v on v.codv = c.codv 
+inner join cliente cc on v.codc = cc.codc 
+where c.data = '12/06/2014'; 
+5-
+select distinct m.nome, m.cpf, s.cods, s.nome from mecanico m
+left outer join setor s on m.cods = s.cods
+6-
+select distinct m.nome, m.codm, c.data from mecanico m
+right join conserto c on m.codm = c.codm
+order by c.data;
+7-
+SELECT AVG(quilometragem) FROM veiculo;
+8-
+SELECT SUM (v.quilometragem) AS total, c.cidade 
+FROM veiculo v
+inner join cliente c on c.codc=v.codc
+GROUP BY c.cidade
+9-
+SELECT count (hora) AS total 
+FROM conserto where data between '12/06/2014' and '19/06/2014'
+10-
+SELECT v.marca, count (c.codm) AS total 
+FROM conserto c 
+Inner join veiculo v on c.codv = v.codv
+group by v.marca
+11-
+SELECT modelo, marca, ano FROM veiculo where quilometragem > (select AVG(quilometragem) from veiculo)
+12-

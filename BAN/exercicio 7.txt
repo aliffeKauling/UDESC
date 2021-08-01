@@ -1,0 +1,31 @@
+1
+create or replace function remove(pcodm int) return int as
+$$
+declare
+	vlinhas int default 0;
+begin
+	delet from mecanico where codm = pcodm;
+	get diagnostics vlinhas = woe_count;
+	raise notice 'linhas deletadas: %', vlinhas;
+end;
+$$
+language plpgspl;
+
+3
+create or replace function atualizaCliente(op char, pcodc, pcpf char(11), pnome varchar(50), pidade int, pendereco varchar(500), pcidade varchar(500))
+
+$$
+declare
+	vlinhas int default 0;
+begin
+	if(op ='I') then 
+		insert into cliente values (pcodc, cpf, pidade, pendereco, pcidade);
+	elsif upper(op) = 'd'=PCODC;
+		delete from cliente where codc = pcodc;
+	elsif upper(op) = 'U' then
+		update cliente set nome = pnome, idade =podade, endereco = pendereco, cidade = pcidade where codc = pcdoc;
+		
+
+end;
+$$
+language plgsql
